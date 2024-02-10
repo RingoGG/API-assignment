@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <title>Urban Dictionary Search</title>
+</head>
+<body>
+    <nav>
+        <h1>Urban Dictionary Search</h1>
+    </nav>
+
+    <div class="container">
+        <!-- <h1>Urban Dictionary Search</h1> -->
+        <form id="dictionaryForm" onsubmit="event.preventDefault(); searchUrbanDictionary();">
+            <label for="searchTerm">Enter a term:</label>
+            <input type="text" id="searchTerm" name="searchTerm" placeholder="E.g., programming" required>
+            <button type="submit">Search</button>
+        </form>
+        <div id="definitionResult"></div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
