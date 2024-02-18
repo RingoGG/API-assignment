@@ -1,51 +1,34 @@
-console.log( `asdasda` );
-
-// const axios = require('axios');
-
-// const options = {
-//   method: 'GET',
-//   url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
-//   params: {term: 'wat'},
-//   headers: {
-//     'X-RapidAPI-Key': 'fc9b3ef8b0msh4fbe230d79b8d81p19e51fjsne00fa26f4b2d',
-//     'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
-//   }
-// };
-
-// try {
-// 	const response = await axios.request(options);
-// 	console.log(response.data);
-// } catch (error) {
-// 	console.error(error);
-// }
-
-
-function searchUrbanDictionary() {
+// Function to fetch data from Urban Dictionary API
+async function searchUrbanDictionary() {
     const searchTerm = document.getElementById('searchTerm').value;
     const definitionResult = document.getElementById('definitionResult');
 
-    // Replace 'YOUR_RAPIDAPI_KEY' with your actual RapidAPI key
-    const apiKey = 'YOUR_RAPIDAPI_KEY';
+    // API details
+    const apiKey = 'fc9b3ef8b0msh4fbe230d79b8d81p19e51fjsne00fa26f4b2d';
     const apiUrl = `https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${searchTerm}`;
 
-    fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'fc9b3ef8b0msh4fbe230d79b8d81p19e51fjsne00fa26f4b2d',
-            'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
+    try {
+        // Fetch data using Fetch API and async/await
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': apiKey,
+                'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+            }
+        });
+
+        // Parse response to JSON
+        const data = await response.json();
+
         // Display the first definition
         if (data.list && data.list.length > 0) {
-            definitionResult.innerHTML = `<strong>Definition:</strong> ${data.list[0].definition}`;
+            definitionResult.innerHTML = `<strong>Definition:</strong> ${data.list[0].definition} <br><strong>Example:</strong>${data.list[2].example}`;
         } else {
             definitionResult.innerHTML = 'No definition found.';
         }
-    })
-    .catch(error => {
+    } catch (error) {
+        // Handle errors
         console.error('Error fetching data:', error);
         definitionResult.innerHTML = 'An error occurred while fetching data.';
-    });
+    }
 }

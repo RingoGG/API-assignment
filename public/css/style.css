@@ -1,42 +1,78 @@
+/* Reset default styles and set common styles for the body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: linear-gradient(#4caf50 1px, transparent 1px), linear-gradient(to right, #4caf50 1px, #e5e5f7 1px);
+    background-size: 20px 20px;
 }
 
+/* Container styles for the main content */
 .container {
-    max-width: 600px;
+    max-width: 400px;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 1;
 }
 
+/* Styles for the main header */
 h1 {
-    text-align: center;
-    color: #333;
+    margin: 1em 0 0.5em 0;
+    color: black;
+    font-weight: normal;
+    font-family: 'Ultra', sans-serif;
+    font-size: 50px;
+    line-height: 42px;
+    text-transform: capitalize;
+    text-shadow: 0 2px white, 0 3px #777;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin-bottom: 10px;
 }
 
+/* Styles for secondary headers */
+h2 {
+    margin: 1em 0 0.5em 0;
+    color: black;
+    font-weight: normal;
+    font-family: 'Ultra', sans-serif;
+    font-size: 30px;
+    text-shadow: 0 2px white, 0 3px #777;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Styles for the form */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Styles for form labels */
 label {
     margin-bottom: 10px;
+    padding-bottom: 20px;
 }
 
+/* Styles for form input */
 input {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+/* Styles for form button */
 button {
     background-color: #4caf50;
     color: #fff;
@@ -46,18 +82,27 @@ button {
     cursor: pointer;
 }
 
+/* Hover styles for form button */
 button:hover {
     background-color: #45a049;
 }
 
+/* Styles for the definition result section */
 #definitionResult {
     margin-top: 20px;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 600px) {
-    .container {
-        max-width: 100%;
-        border-radius: 0;
+/* Responsive Styles for smaller screens */
+@media screen and (max-width: 390px) {
+    h1 {
+        font-size: 40px;
+        padding-top: 50px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding-top: 5px;
+        margin-bottom: 10px;
     }
 }
