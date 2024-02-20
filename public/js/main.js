@@ -8,7 +8,7 @@ async function searchUrbanDictionary() {
     const apiUrl = `https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${searchTerm}`;
 
     try {
-        // Fetch data using Fetch API and async/await
+        // Fetch API and async/await
         const response = await fetch(apiUrl, {
             method: 'GET',
             headers: {
@@ -20,14 +20,14 @@ async function searchUrbanDictionary() {
         // Parse response to JSON
         const data = await response.json();
 
-        // Display the first definition
+        // Display the definition and example
         if (data.list && data.list.length > 0) {
             definitionResult.innerHTML = `<strong>Definition:</strong> ${data.list[0].definition} <br><strong>Example:</strong>${data.list[2].example}`;
         } else {
             definitionResult.innerHTML = 'No definition found.';
         }
     } catch (error) {
-        // Handle errors
+        // show errors
         console.error('Error fetching data:', error);
         definitionResult.innerHTML = 'An error occurred while fetching data.';
     }
